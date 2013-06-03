@@ -1,0 +1,33 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+apply plugin: 'idea'
+
+group = 'de.bolchsteinegger'
+version = '0.1.0'
+
+sourceCompatibility = '1.7'
+targetCompatibility = '1.7'
+
+ext {
+	spockVersion = '0.7-groovy-1.8'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile localGroovy()
+
+	compile gradleApi()
+
+	testCompile ("org.spockframework:spock-core:$spockVersion") {
+		exclude module: "junit-dep"
+		exclude module: "groovy-all"
+	}
+}
+
+idea.module {
+	downloadJavadoc = true
+	downloadSources = true
+}
