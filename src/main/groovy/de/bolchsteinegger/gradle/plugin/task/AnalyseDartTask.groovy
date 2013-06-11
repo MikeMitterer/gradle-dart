@@ -10,7 +10,7 @@ class AnalyseDartTask extends DefaultTask {
 
     @TaskAction
     def run() {
-        String dartExecutable = "${project.dart.dartSdkBin}dart_analyzer"
+        String dartExecutable = "${project.dart.dartSdkBin}dartanalyzer"
         project.logger.lifecycle("Analysing files in \"${project.dart.sourceDirectory}\".")
         Integer fileCount = executeDartFilesInPath("${project.dart.sourceDirectory}", dartExecutable)
         project.logger.lifecycle("Analysed $fileCount files.")
